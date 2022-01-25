@@ -1,14 +1,21 @@
 const {Thought} = require('../models');
+//getAllThoughts,
+//getThoughtById,
+//createThought,
+//updateThought,
+//deleteThought,
+//addReaction,
+//removeReaction,
 
 module.exports = {
   // Get all thoughts
-  getThoughts(req, res) {
+  getAllThoughts(req, res) {
     Thought.find()
       .then((thoughts) => res.json(thoughts))
       .catch((err) => res.status(500).json(err));
   },
   // Get a thought
-  getSingleThought(req, res) {
+  getThoughtById(req, res) {
     Thought.findOne({ _id: req.params.thoughtId })
       .select('-__v')
       .then((thought) =>
